@@ -4,6 +4,15 @@ body {
     background-image: url(images/bg-foto.webp);
     width: 100%;
     height: 100%;
+    text-transform: uppercase;
+    font-family: var(--main_font);
+}
+
+:root {
+    --title_color: #FD7D54;
+    --text_color: #FFFFFF;
+    --main_font: Montserrat;
+    --link_color: #41C3F6;
 }
 
 a {
@@ -14,12 +23,198 @@ ul {
     list-style: none;
 }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+#tri-poloski {
+    display: none;
+}
+
+.tri-poloski-btn {
+    display: block;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    margin: 20px;
+    z-index: 101;
+    padding-top: 25px;
+}
+
+.tri-poloski,
+.tri-poloski::before,
+.tri-poloski::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    transition: 0.3s;
+}
+
+.tri-poloski {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tri-poloski::before {
+    top: -8px;
+}
+
+.tri-poloski::after {
+    top: 8px;
+}
+
+.nav {
+    position: relative;
+}
+
+.main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.products {
+    background-color: black;
+    width: 80%;
+    padding: 60px 0px;
+    justify-self: center;
+    text-align: center;
+
+}
+
+.products_title {
+    color: var(--title_color);
+    font-size: 40px;
+    margin: 0 auto;
+    justify-self: center;
+    letter-spacing: 15%;
+}
+
+.products_text {
+    color: var(--text_color);
+    font-size: 16px;
+}
+
+.products_grid {
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.products_article {
+    border: 3px solid var(--text_color);
+    color: var(--text_color);
+    margin: 0 auto;
+    margin-top: 44px;
+    width: 80%;
+    padding: 35px 5px;
+    max-width: 250px;
+
+}
+
+.article_link {
+    text-decoration: none;
+    color: var(--link_color);
+    letter-spacing: 5%;
+}
+
+.article_title {
+    letter-spacing: 10%;
+}
+
+.article_title::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: white;
+    cursor: pointer;
+    width: 20px;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.article_text {
+    width: 80%;
+    justify-self: center;
+}
+
+.footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright {
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: sans-serif, 'Montserrat';
+    letter-spacing: 10%;
+}
+
+@media (max-width:767px) {
+
+    .header {
+        background: #000000;
+        height: 50px;
+    }
+
+    .header-list {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    #tri-poloski:checked~.header-list {
+        display: flex;
+    }
+
+    .header-item {
+        margin: 15px 0;
+    }
+
+    .header-img {
+        width: 100px;
+        height: 100px;
+        padding-left: 160px;
+    }
+
+    .header-link {
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
 
 
+    #tri-poloski:checked+.tri-poloski-btn .tri-poloski {
+        transform: rotate(45deg);
+    }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    #tri-poloski:checked+.tri-poloski-btn .tri-poloski::before {
+        top: 0;
+        opacity: 0;
+    }
+
+    #tri-poloski:checked+.tri-poloski-btn .tri-poloski::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+}
+
 @media (min-width:768px) {
+
+    .tri-poloski-btn {
+        display: none;
+    }
+
+    #tri-poloski {
+        display: none;
+    }
+
     .header {
         background-color: black;
     }
@@ -40,11 +235,31 @@ ul {
         font-size: 15px;
         letter-spacing: 12%;
     }
+
+    .main {
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+    .products_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products_title {
+        color: var(--title_color);
+        font-size: 44px;
+        margin: 0 auto;
+        justify-self: center;
+        letter-spacing: 25%;
+    }
+
     .footer {
         background-color: black;
         display: flex;
         justify-content: center;
     }
+
     .copyright {
         color: white;
         font-weight: 700;
@@ -75,11 +290,43 @@ ul {
         font-size: 19px;
         letter-spacing: 12%;
     }
+    
+    .main {
+        margin-top: 102px;
+        margin-bottom: 102px;
+    }
+
+    .products_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products_title {
+        color: var(--title_color);
+        font-size: 48px;
+        margin: 0 auto;
+        justify-self: center;
+        letter-spacing: 25%;
+    }
+
+    .products {
+        width: 70%;
+    }
+
+    .article_title {
+        margin-bottom: 40px;
+    }
+
+    .products_article {
+        max-width: 300px;
+        height: 320px;
+    }
+
     .footer {
         background-color: black;
         display: flex;
         justify-content: center;
     }
+
     .copyright {
         color: white;
         font-weight: 700;
